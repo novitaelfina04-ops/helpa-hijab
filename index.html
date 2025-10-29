@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Helpa Hijab - Beranda</title>
+  <style>
+    /* ===== RESET & DASAR ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f9fafb;
+      color: #222;
+      line-height: 1.6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(90deg, #8fc3f7, #0066cc);
+      color: white;
+      padding: 12px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+      position: sticky;
+      top: 0;
+      z-index: 60;
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 20px;
+    }
+    .site-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo { height: 36px; width: auto; display: block; }
+
+    /* Desktop nav */
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .header-nav a {
+      color: white;
+      font-weight: 600;
+      padding: 8px 10px;
+      border-radius: 8px;
+      transition: background 0.18s;
+    }
+    .header-nav a:hover { background: rgba(255,255,255,0.08); }
+
+    /* Hamburger (mobile) */
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.25rem;
+      padding: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* Mobile nav overlay */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 70;
+      align-items: flex-start;
+      justify-content: flex-end;
+      transition: opacity 0.2s ease;
+    }
+    .mobile-nav .drawer {
+      width: 280px;
+      max-width: 80%;
+      height: 100%;
+      background: linear-gradient(180deg,#ffffff,#f3f6fb);
+      padding: 24px;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .mobile-nav .drawer a {
+      display: block;
+      padding: 12px;
+      border-radius: 8px;
+      color: #003f8c;
+      font-weight: 600;
+    }
+    .mobile-nav .close-btn {
+      align-self: flex-end;
+      background: transparent;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    /* ===== PROMO SECTION ===== */
+    .promo-section {
+      background: url('images/banner-hijab.png') center/cover no-repeat;
+      color: white;
+      text-align: left;
+      padding: 100px 20px;
+      position: relative;
+      overflow: hidden;
+      min-height: 320px;
+    }
+    .promo-section::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,63,140,0.55), rgba(0,63,140,0.22));
+      pointer-events: none;
+    }
+    .promo-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    .promo-text {
+      max-width: 640px;
+    }
+    .promo-inner h2 {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+      letter-spacing: 0.6px;
+    }
+    .promo-inner p { font-size: 1.05rem; margin-bottom: 16px; }
+    .promo-image {
+      width: 420px;
+      max-width: 45%;
+      height: auto;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .promo-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .promo-button {
+      background-color: #ffdd57;
+      color: #003f8c;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      display: inline-block;
+    }
+
+    /* ===== PRODUK UNGGULAN ===== */
+    .featured-products {
+      padding: 48px 16px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .featured-products h2 {
+      text-align: center;
+      font-size: 1.6rem;
+      color: #003f8c;
+      margin-bottom: 18px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .product-item {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      text-align: center;
+      padding: 14px;
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .product-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.09);
+    }
+    .product-item .image-wrap {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
+    .product-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .product-item h3 { color: #0066cc; font-size: 1.02rem; margin-bottom: 8px; }
+    .product-item p { color: #444; font-size: 0.94rem; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: #003f8c;
+      color: white;
+      text-align: center;
+      padding: 18px 0;
+      margin-top: 36px;
+      font-size: 0.95rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+      .promo-image { max-width: 40%; }
+    }
+
+    @media (max-width: 768px) {
+      .site-title { font-size: 1.2rem; }
+      .header-nav { display: none; }           /* hide desktop nav */
+      .nav-toggle { display: inline-flex; }    /* show hamburger */
+
+      .promo-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 0 16px;
+      }
+      .promo-section { padding: 56px 12px; min-height: 300px; background-position: center 20%; }
+      .promo-inner h2 { font-size: 1.5rem; }
+      .promo-inner p { font-size: 0.98rem; }
+      .promo-image { width: 100%; max-width: 320px; height: 200px; order: 2; }
+
+      .product-grid { grid-template-columns: 1fr; gap: 14px; }
+      .product-item .image-wrap { height: 160px; }
+
+      /* mobile nav overlay visible when active (JS toggles .open) */
+      .mobile-nav { display: none; }
+      .mobile-nav.open { display: flex; }
+    }
+
+    /* Small polish for focus outlines */
+    button:focus, a:focus { outline: 3px solid rgba(5, 150, 105, 0.12); outline-offset: 2px; border-radius: 6px; }
+  </style>
+
+  <!-- Google tag (gtag.js) - optional, biarkan jika ada -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZFGB10WM34"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZFGB10WM34');
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <h1 class="site-title">
+        Helpa
+        <img src="images/logo.png" alt="Logo Helpa Hijab" class="logo" />
+        Hijab
+      </h1>
+
+      <!-- Desktop nav (hidden on mobile) -->
+      <nav class="header-nav" aria-label="Navigasi utama">
+        <a href="index.html">Home</a>
+        <a href="products.html">Produk</a>
+        <a href="cart.html">Keranjang</a>
+      </nav>
+
+      <!-- Hamburger untuk mobile -->
+      <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false">
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <div class="drawer" role="menu" aria-label="Menu navigasi">
+      <button class="close-btn" id="navClose" aria-label="Tutup menu">✕</button>
+      <a href="index.html" role="menuitem">Home</a>
+      <a href="products.html" role="menuitem">Produk</a>
+      <a href="cart.html" role="menuitem">Keranjang</a>
+      <!-- bisa tambah link akun, help, dst -->
+      <div style="margin-top:auto; font-size:0.9rem; color:#555;">
+        <p>Hubungi kami: <a href="mailto:info@helpa-hijab.id">info@helpa-hijab.id</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROMO -->
+  <section class="promo-section" aria-label="Promo utama">
+    <div class="promo-inner">
+      <div class="promo-text">
+        <h2>Promo Spesial Ramadan</h2>
+        <p>Dapatkan koleksi hijab terbaik dengan diskon hingga 50% untuk waktu terbatas. Pilih motif dan bahan favoritmu sekarang.</p>
+        <a href="products.html" class="promo-button">Lihat Koleksi</a>
+      </div>
+
+      <!-- ilustrasi / banner image (responsive) -->
+      <div class="promo-image" aria-hidden="true">
+        <img src="images/banner-hijab.png" alt="Ilustrasi Helpa Hijab">
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUK UNGGULAN -->
+  <section class="featured-products" aria-label="Produk unggulan">
+    <div>
+      <h2>Produk Unggulan</h2>
+      <div class="product-grid">
+        <div class="product-item">
+          <div class="image-wrap"><img src="images/hijab1.jpg" alt="Hijab Cotton Premium"></div>
+          <h3>Hijab Instan Spandex</h3>
+          <p>Nyaman & sejuk, cocok untuk kegiatan sehari-hari.</p>
+        </div>
+
+        <div class="product-item">
+          <div class="image-wrap"><img src="images/hijab4.jpg" alt="Hijab Segi Empat Floral"></div>
+          <h3>Kerudung Segi Empat Floral</h3>
+          <p>Motif floral elegan, membuat tampilanmu semakin menawan.</p>
+        </div>
+
+        <div class="product-item">
+          <div class="image-wrap"><img src="images/hijab2.jpg" alt="Hijab Voal - Forest Green"></div>
+          <h3>Alma Hijab – Forest Green</h3>
+          <p>Warna hijau yang menenangkan, bahan premium lembut.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Helpa Hijab. All rights reserved.</p>
+  </footer>
+
+  <!-- SEDERHANA JS UNTUK TOGGLE NAV (MOBILE) -->
+  <script>
+    (function() {
+      const navToggle = document.getElementById('navToggle');
+      const mobileNav = document.getElementById('mobileNav');
+      const navClose = document.getElementById('navClose');
+
+      function openNav() {
+        mobileNav.classList.add('open');
+        mobileNav.setAttribute('aria-hidden', 'false');
+        navToggle.setAttribute('aria-expanded', 'true');
+        // prevent background scroll when open
+        document.body.style.overflow = 'hidden';
+      }
+      function closeNav() {
+        mobileNav.classList.remove('open');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+
+      navToggle.addEventListener('click', function(e) {
+        if (mobileNav.classList.contains('open')) closeNav();
+        else openNav();
+      });
+
+      navClose.addEventListener('click', closeNav);
+
+      // close if click outside drawer
+      mobileNav.addEventListener('click', function(e) {
+        if (e.target === mobileNav) closeNav();
+      });
+
+      // close with Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileNav.classList.contains('open')) closeNav();
+      });
+    })();
+  </script>
+</body>
+</html>
