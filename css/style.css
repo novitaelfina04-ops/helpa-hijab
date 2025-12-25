@@ -1,0 +1,332 @@
+header {
+  background-color: #005bb5;   /* contoh warna biru */
+  padding: 20px 0;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;          /* agar judul + logo + nav disusun vertikal utama, nav di bawah */
+  align-items: center;             /* membuat judul/logo berada di tengah secara horizontal */
+}
+
+.site-title {
+  font-size: 3.0rem;
+  color: #8a7c4d;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;         /* membuat Helpa-logo-Hijab berada sejajar di tengah */
+}
+
+.logo-placeholder {
+  margin: 0 200px;                  /* ruang di kiri/kanan logo */
+}
+
+.logo {
+  width: 60px;                     /* ukuran logo, bisa disesuaikan */
+  height: auto;
+  display: block;
+}
+
+header {
+    background-color: #56eeee;
+    padding: 20px;
+    text-align: center;
+    position: relative;  /* memudahkan penataan elemen di dalam */
+}
+
+header nav {
+    margin: 10px auto 0 auto;
+}
+
+header nav a {
+    color: #56eeee;
+    background-color: #8a7c4d;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 5px;
+    border-radius: 4px;
+}
+
+header nav a:hover {
+    background-color: #9e883f;
+}
+/* Promo Section */
+.promo-section {
+  background-color: #f0f8ff;   /* warna latar untuk bagian promo */
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.promo-section .promo-inner h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.promo-section .promo-inner p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.promo-section .promo-button {
+  background-color: #005bb5;   /* biru yang sesuai header */
+  color: white;
+  padding: 12px 30px;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.promo-section .promo-button:hover {
+  background-color: #003f8c;   /* warna biru lebih gelap ketika hover */
+}
+
+/* Produk Unggulan */
+.featured-products h2 {
+  text-align: center;
+  margin: 40px 0 20px;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.product-item {
+  flex: 1 1 calc(33% - 40px);
+  max-width: 300px;
+  background-color: white;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.product-item img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+  border-radius: 8px;
+}
+
+.product-item h3 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.product-item p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .product-item {
+    flex: 1 1 calc(50% - 40px);
+  }
+}
+@media (max-width: 480px) {
+  .product-item {
+    flex: 1 1 100%;
+  }
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    padding: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 0px 0px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 100px;
+        padding: 8px 0;
+    }
+}
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.product-item {
+    flex: 1 1 calc(33% - 40px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 10px;
+    background-color: white;
+}
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+@media (max-width: 768px) {
+    .product-item {
+        flex: 1 1 calc(50% - 40px);
+    }
+}
+@media (max-width: 480px) {
+    .product-item {
+        flex: 1 1 100%;
+    }
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+form button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+form button:hover {
+    background-color: #575757;
+}
+/* Keranjang & pembayaran */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+.cart-table th,
+.cart-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+.cart-table th {
+    background-color: #f8f8f8;
+}
+.cart-table input[type="number"] {
+    width: 60px;
+    padding: 5px;
+}
+.remove-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+.remove-btn:hover {
+    background-color: #c0392b;
+}
+
+.checkout-section {
+    text-align: right;
+    margin: 30px 0;
+}
+.checkout-section strong {
+    font-size: 1.2rem;
+}
+.checkout-btn {
+    background-color: #005bb5;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+.checkout-btn:hover {
+    background-color: #003f8c;
+}
+
+@media (max-width: 768px) {
+    .checkout-section {
+        text-align: center;
+    }
+}
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin: 40px 0 20px;
+  color: #1e3a8a; /* ganti dengan warna sesuai Anda */
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+.product-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+.product-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+.product-name {
+  font-size: 1.2rem;
+  margin: 10px 0 8px;
+  color: #1e3a8a;
+}
+.product-desc {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 12px;
+}
+.product-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #d35400; /* bisa ganti sesuai warna khusus harga */
+}
+.add-to-cart {
+  background-color: #005bb5; /* biru utama */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+.add-to-cart:hover {
+  background-color: #003f8c;
+}
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.social-links {
+  margin-top: 10px;
+}
+.social-links a {
+  display: inline-block;
+  margin: 0 8px;
+  color: white;
+  font-size: 1.1rem;
+  transition: opacity 0.3s;
+}
+.social-links a:hover {
+  opacity: 0.8;
+}
